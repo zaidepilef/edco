@@ -1,0 +1,99 @@
+---
+import Base from "../layouts/Base.astro";
+import Button from "../components/Button.astro";
+import SectionTitle from "../components/SectionTitle.astro";
+import Card from "../components/Card.astro";
+import CtaBanner from "../components/CtaBanner.astro";
+import Acreditaciones from "../components/Acreditaciones.astro";
+import { site } from "../lib/site";
+
+const pillars = [
+  {
+    icon: "◈",
+    title: "Especialización en DS44",
+    description:
+      "Nuestra práctica se centra en la normativa de prevención de riesgos laborales y en el Decreto Supremo N°44, la norma que redefinió la gestión de SST en Chile.",
+  },
+  {
+    icon: "✓",
+    title: "Respaldo acreditado",
+    description:
+      "EDCO cuenta con el respaldo y la habilitación para prestar servicios de prevención de riesgos laborales a empresas. (Datos y certificaciones por confirmar.)",
+  },
+  {
+    icon: "⚙",
+    title: "Tecnología al servicio de la prevención",
+    description:
+      "Procesos de diagnóstico y gestión apoyados en tecnología, preparados para evolucionar hacia una plataforma de gestión preventiva.",
+  },
+  {
+    icon: "✦",
+    title: "Acompañamiento cercano",
+    description:
+      "Atención directa y personalizada. Cuando nos escribes, te responde una persona de EDCO, no un sistema automatizado.",
+  },
+];
+---
+
+<Base
+  title="Nosotros | EDCO Gestión Preventiva SpA"
+  description="Conoce a EDCO Gestión Preventiva SpA: consultora chilena de Seguridad y Salud en el Trabajo, especializada en el Decreto Supremo N°44."
+>
+  <section class="bg-brand-900 text-white">
+    <div class="mx-auto max-w-4xl px-4 py-16 sm:py-20">
+      <p class="text-sm font-bold uppercase tracking-widest text-accent-400">Nosotros</p>
+      <h1 class="mt-4 text-4xl font-bold leading-tight tracking-tight sm:text-5xl">
+        EDCO Gestión Preventiva SpA
+      </h1>
+      <p class="mt-6 text-lg text-brand-100">
+        Una consultora de Seguridad y Salud en el Trabajo que nace para que las
+        empresas chilenas gestionen su prevención con claridad, respaldo técnico
+        y acompañamiento real.
+      </p>
+    </div>
+  </section>
+
+  <section class="mx-auto max-w-4xl px-4 py-16">
+    <SectionTitle
+      eyebrow="Nuestra misión"
+      title="Que cada empresa sepa cómo gestionar su prevención"
+      description="Acompañamos a las empresas en el cumplimiento de la normativa de SST y en la construcción de una cultura preventiva, empezando por entender su situación real."
+    />
+
+    <div class="mt-12 grid gap-6 sm:grid-cols-2">
+      {
+        pillars.map((pillar) => (
+          <Card
+            icon={pillar.icon}
+            title={pillar.title}
+            description={pillar.description}
+          />
+        ))
+      }
+    </div>
+
+    <div class="mt-14 rounded-2xl bg-brand-50 p-8">
+      <h2 class="text-2xl font-bold text-brand-900">Nuestra trayectoria</h2>
+      <p class="mt-3 text-lg text-slate-600">
+        Estamos consolidando la información de nuestra trayectoria, clientes y
+        certificaciones para publicarla aquí. Mientras tanto, la mejor forma de
+        conocernos es dándonos la oportunidad de revisar tu empresa.
+      </p>
+      <div class="mt-6">
+        <Button href="/evalua-tu-empresa" variant="primary" size="lg" label="Evalúa tu Empresa" />
+      </div>
+      <p class="mt-4 text-sm text-slate-500">
+        {site.legalName} · Cobertura en todo Chile
+      </p>
+    </div>
+
+    <div class="mt-14">
+      <Acreditaciones />
+    </div>
+  </section>
+
+  <CtaBanner
+    title="Hablemos de tu empresa"
+    description="Solicita tu diagnóstico preventivo o escríbenos. Te contactamos de forma inmediata."
+  />
+</Base>

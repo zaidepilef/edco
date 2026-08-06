@@ -1,0 +1,97 @@
+---
+import { initProspectForm } from "../scripts/prospect-form";
+---
+
+<form
+  id="form-evalua"
+  class="space-y-5"
+  novalidate
+  data-form="evalua"
+>
+  <p class="text-sm text-slate-500">
+    Solo necesitamos tus datos de contacto. Te contactaremos de forma inmediata
+    para coordinar el diagnóstico de tu empresa.
+  </p>
+
+  <div class="hp-field" hidden aria-hidden="true">
+    <label for="website">No llenar este campo</label>
+    <input id="website" name="website" type="text" tabindex="-1" autocomplete="off" />
+  </div>
+
+  <div data-field="nombre">
+    <label for="eval-nombre" class="mb-1 block font-medium text-slate-700">
+      Nombre *
+    </label>
+    <input
+      id="eval-nombre"
+      name="nombre"
+      type="text"
+      required
+      class="w-full rounded-lg border border-slate-300 px-4 py-2.5 focus:border-brand-600"
+      placeholder="Tu nombre y apellido"
+    />
+    <p class="mt-1 text-sm text-red-700" data-error role="alert"></p>
+  </div>
+
+  <div data-field="email">
+    <label for="eval-email" class="mb-1 block font-medium text-slate-700">
+      Correo electrónico
+    </label>
+    <input
+      id="eval-email"
+      name="email"
+      type="email"
+      class="w-full rounded-lg border border-slate-300 px-4 py-2.5 focus:border-brand-600"
+      placeholder="tucorreo@empresa.cl"
+    />
+    <p class="mt-1 text-sm text-red-700" data-error role="alert"></p>
+  </div>
+
+  <div data-field="telefono">
+    <label for="eval-telefono" class="mb-1 block font-medium text-slate-700">
+      Teléfono
+    </label>
+    <input
+      id="eval-telefono"
+      name="telefono"
+      type="tel"
+      class="w-full rounded-lg border border-slate-300 px-4 py-2.5 focus:border-brand-600"
+      placeholder="+56 9 1234 5678"
+    />
+    <p class="mt-1 text-sm text-red-700" data-error role="alert"></p>
+  </div>
+
+  <p class="text-xs text-slate-500">
+    * Correo y/o teléfono: con uno de los dos es suficiente.
+  </p>
+
+  <button
+    type="submit"
+    class="w-full rounded-lg bg-accent-500 px-6 py-3 font-semibold text-white transition-colors hover:bg-accent-600 sm:w-auto"
+  >
+    Solicitar mi diagnóstico
+  </button>
+
+  <p class="text-sm font-medium" data-form-status role="status" aria-live="polite"></p>
+</form>
+
+<style>
+  [data-form-status][data-kind="success"] {
+    color: var(--color-safety-700);
+  }
+  [data-form-status][data-kind="error"] {
+    color: #b91c1c;
+  }
+</style>
+
+<script>
+  const form = document.getElementById("form-evalua") as HTMLFormElement | null;
+  if (form) {
+    initProspectForm(form, {
+      type: "diagnostico",
+      successTitle: "¡Solicitud recibida!",
+      successText: "Te contactaremos de inmediato para coordinar tu diagnóstico.",
+      submitLabel: "Solicitar mi diagnóstico",
+    });
+  }
+</script>

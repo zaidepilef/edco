@@ -1,0 +1,110 @@
+---
+import Logo from "./Logo.astro";
+
+const navItems = [
+  { label: "Inicio", href: "/" },
+  { label: "DS44", href: "/ds44" },
+  { label: "Servicios", href: "/servicios" },
+  { label: "Recursos", href: "/recursos" },
+  { label: "Nosotros", href: "/nosotros" },
+  { label: "Contacto", href: "/contacto" },
+];
+---
+
+<header class="sticky top-0 z-40 border-b border-slate-200 bg-white/95 backdrop-blur">
+  <nav
+    class="mx-auto flex max-w-6xl items-center justify-between gap-4 px-4 py-3"
+    aria-label="Navegación principal"
+  >
+    <Logo />
+
+    <ul class="hidden items-center gap-1 lg:flex">
+      {
+        navItems.map((item) => (
+          <li>
+            <a
+              href={item.href}
+              class="rounded-lg px-3 py-2 font-medium text-slate-700 hover:bg-brand-50 hover:text-brand-800"
+            >
+              {item.label}
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+
+    <div class="flex items-center gap-2">
+      <a
+        href="/evalua-tu-empresa"
+        class="hidden items-center rounded-lg bg-accent-500 px-4 py-2 font-semibold text-white transition-colors hover:bg-accent-600 sm:inline-flex"
+      >
+        Evalúa tu Empresa
+      </a>
+
+      <button
+        id="menu-toggle"
+        class="inline-flex items-center justify-center rounded-lg border border-slate-300 p-2 lg:hidden"
+        type="button"
+        aria-expanded="false"
+        aria-controls="menu-mobile"
+        aria-label="Abrir menú"
+      >
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <path d="M4 6h16M4 12h16M4 18h16" stroke-linecap="round" />
+        </svg>
+      </button>
+    </div>
+  </nav>
+
+  <div
+    id="menu-mobile"
+    class="hidden border-t border-slate-200 bg-white lg:hidden"
+    hidden
+  >
+    <ul class="mx-auto flex max-w-6xl flex-col px-4 py-2">
+      {
+        navItems.map((item) => (
+          <li>
+            <a
+              href={item.href}
+              class="block rounded-lg px-3 py-3 font-medium text-slate-700 hover:bg-brand-50 hover:text-brand-800"
+            >
+              {item.label}
+            </a>
+          </li>
+        ))
+      }
+      <li>
+        <a
+          href="/evalua-tu-empresa"
+          class="block rounded-lg px-3 py-3 font-semibold text-accent-600"
+        >
+          Evalúa tu Empresa
+        </a>
+      </li>
+    </ul>
+  </div>
+</header>
+
+<script>
+  const toggle = document.getElementById("menu-toggle");
+  const menu = document.getElementById("menu-mobile");
+
+  function setMenu(open: boolean) {
+    menu!.hidden = !open;
+    toggle!.setAttribute("aria-expanded", String(open));
+    toggle!.setAttribute("aria-label", open ? "Cerrar menú" : "Abrir menú");
+  }
+
+  toggle?.addEventListener("click", () => {
+    setMenu(menu!.hidden);
+  });
+
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape") setMenu(false);
+  });
+
+  menu?.addEventListener("click", (event) => {
+    if ((event.target as HTMLElement).tagName === "A") setMenu(false);
+  });
+</script>

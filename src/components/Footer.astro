@@ -1,0 +1,85 @@
+---
+import { site } from "../lib/site";
+
+const navItems = [
+  { label: "Inicio", href: "/" },
+  { label: "DS44", href: "/ds44" },
+  { label: "Servicios", href: "/servicios" },
+  { label: "Recursos", href: "/recursos" },
+  { label: "Nosotros", href: "/nosotros" },
+  { label: "Contacto", href: "/contacto" },
+  { label: "Evalúa tu Empresa", href: "/evalua-tu-empresa" },
+  { label: "Preguntas frecuentes", href: "/preguntas-frecuentes" },
+];
+---
+
+<footer class="bg-brand-950 text-slate-300">
+  <div class="mx-auto grid max-w-6xl gap-10 px-4 py-12 sm:grid-cols-2 lg:grid-cols-4">
+    <div>
+      <p class="text-lg font-bold text-white">EDCO</p>
+      <p class="mt-1 text-sm uppercase tracking-wider text-slate-400">
+        Gestión Preventiva
+      </p>
+      <p class="mt-4 text-sm leading-relaxed">
+        {site.legalName}. Consultora de Seguridad y Salud en el Trabajo (SST)
+        para empresas de todo Chile.
+      </p>
+    </div>
+
+    <nav aria-label="Secciones del sitio">
+      <h2 class="text-sm font-semibold uppercase tracking-wider text-white">
+        Sitio
+      </h2>
+      <ul class="mt-4 space-y-2 text-sm">
+        {
+          navItems.map((item) => (
+            <li>
+              <a href={item.href} class="hover:text-white">
+                {item.label}
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </nav>
+
+    <div>
+      <h2 class="text-sm font-semibold uppercase tracking-wider text-white">
+        Servicios
+      </h2>
+      <ul class="mt-4 space-y-2 text-sm">
+        <li><a href="/servicios" class="hover:text-white">Diagnóstico preventivo</a></li>
+        <li><a href="/servicios" class="hover:text-white">Asesorías en prevención de riesgos</a></li>
+        <li><a href="/servicios" class="hover:text-white">Capacitaciones en SST</a></li>
+        <li><a href="/ds44" class="hover:text-white">Cumplimiento DS44</a></li>
+      </ul>
+    </div>
+
+    <div>
+      <h2 class="text-sm font-semibold uppercase tracking-wider text-white">
+        Contacto
+      </h2>
+      <address class="mt-4 space-y-2 text-sm not-italic">
+        <p>{site.legalName}</p>
+        <p>
+          <a class="hover:text-white" href={`mailto:${site.contact.email}`}>
+            {site.contact.email}
+          </a>
+        </p>
+        <p>
+          <a class="hover:text-white" href={`tel:${site.contact.phone}`}>
+            {site.contact.phone}
+          </a>
+        </p>
+        <p>Cobertura en todo Chile</p>
+      </address>
+    </div>
+  </div>
+
+  <div class="border-t border-brand-900">
+    <p class="mx-auto max-w-6xl px-4 py-4 text-xs text-slate-500">
+      © {new Date().getFullYear()} {site.legalName}. Todos los derechos
+      reservados.
+    </p>
+  </div>
+</footer>

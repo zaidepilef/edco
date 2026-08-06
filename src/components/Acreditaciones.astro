@@ -1,0 +1,44 @@
+---
+interface Badge {
+  label: string;
+  note: string;
+}
+
+// TODO: reemplazar con los datos reales de acreditaciones/certificaciones
+// de EDCO cuando estén disponibles (ver tarea 9.1).
+const badges: Badge[] = [
+  {
+    label: "Empresa de Prevención de Riesgos",
+    note: "Respaldo para prestar servicios de prevención de riesgos laborales.",
+  },
+  {
+    label: "Especialistas DS44",
+    note: "Enfoque dedicado a la normativa de prevención de riesgos vigente.",
+  },
+  {
+    label: "Cobertura Nacional",
+    note: "Servicios de prevención para empresas en todo Chile.",
+  },
+];
+---
+
+<section>
+  <h2 class="text-center text-2xl font-bold text-brand-900">
+    Respaldo y acreditaciones
+  </h2>
+  <p class="mx-auto mt-3 max-w-2xl text-center text-lg text-slate-600">
+    Nuestra práctica se sustenta en el respaldo técnico y la especialización en
+    prevención de riesgos laborales.
+  </p>
+  <div class="mt-8 grid gap-6 sm:grid-cols-3">
+    {
+      badges.map((badge) => (
+        <div class="rounded-xl border border-safety-200 bg-safety-50 p-6 text-center">
+          <p class="text-3xl" aria-hidden="true">✓</p>
+          <h3 class="mt-3 font-semibold text-safety-800">{badge.label}</h3>
+          <p class="mt-1 text-sm text-slate-600">{badge.note}</p>
+        </div>
+      ))
+    }
+  </div>
+</section>

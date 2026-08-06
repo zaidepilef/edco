@@ -1,0 +1,105 @@
+---
+import { initProspectForm } from "../scripts/prospect-form";
+---
+
+<form
+  id="form-contacto"
+  class="space-y-5"
+  novalidate
+  data-form="contacto"
+>
+  <div class="hp-field" hidden aria-hidden="true">
+    <label for="website-contacto">No llenar este campo</label>
+    <input id="website-contacto" name="website" type="text" tabindex="-1" autocomplete="off" />
+  </div>
+
+  <div data-field="nombre">
+    <label for="ct-nombre" class="mb-1 block font-medium text-slate-700">
+      Nombre *
+    </label>
+    <input
+      id="ct-nombre"
+      name="nombre"
+      type="text"
+      required
+      class="w-full rounded-lg border border-slate-300 px-4 py-2.5 focus:border-brand-600"
+      placeholder="Tu nombre"
+    />
+    <p class="mt-1 text-sm text-red-700" data-error role="alert"></p>
+  </div>
+
+  <div data-field="email">
+    <label for="ct-email" class="mb-1 block font-medium text-slate-700">
+      Correo electrónico *
+    </label>
+    <input
+      id="ct-email"
+      name="email"
+      type="email"
+      required
+      class="w-full rounded-lg border border-slate-300 px-4 py-2.5 focus:border-brand-600"
+      placeholder="tucorreo@empresa.cl"
+    />
+    <p class="mt-1 text-sm text-red-700" data-error role="alert"></p>
+  </div>
+
+  <div data-field="telefono">
+    <label for="ct-telefono" class="mb-1 block font-medium text-slate-700">
+      Teléfono
+    </label>
+    <input
+      id="ct-telefono"
+      name="telefono"
+      type="tel"
+      class="w-full rounded-lg border border-slate-300 px-4 py-2.5 focus:border-brand-600"
+      placeholder="+56 9 1234 5678"
+    />
+    <p class="mt-1 text-sm text-red-700" data-error role="alert"></p>
+  </div>
+
+  <div data-field="mensaje">
+    <label for="ct-mensaje" class="mb-1 block font-medium text-slate-700">
+      Mensaje *
+    </label>
+    <textarea
+      id="ct-mensaje"
+      name="mensaje"
+      rows="4"
+      required
+      class="w-full rounded-lg border border-slate-300 px-4 py-2.5 focus:border-brand-600"
+      placeholder="Cuéntanos en qué podemos ayudarte"
+    ></textarea>
+    <p class="mt-1 text-sm text-red-700" data-error role="alert"></p>
+  </div>
+
+  <button
+    type="submit"
+    class="w-full rounded-lg bg-brand-800 px-6 py-3 font-semibold text-white transition-colors hover:bg-brand-700 sm:w-auto"
+  >
+    Enviar mensaje
+  </button>
+
+  <p class="text-sm font-medium" data-form-status role="status" aria-live="polite"></p>
+</form>
+
+<style>
+  [data-form-status][data-kind="success"] {
+    color: var(--color-safety-700);
+  }
+  [data-form-status][data-kind="error"] {
+    color: #b91c1c;
+  }
+</style>
+
+<script>
+  const form = document.getElementById("form-contacto") as HTMLFormElement | null;
+  if (form) {
+    initProspectForm(form, {
+      type: "contacto",
+      withMessage: true,
+      successTitle: "¡Mensaje enviado!",
+      successText: "Responderemos tu consulta a la brevedad.",
+      submitLabel: "Enviar mensaje",
+    });
+  }
+</script>

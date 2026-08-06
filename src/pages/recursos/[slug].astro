@@ -1,0 +1,58 @@
+---
+import Base from "../../layouts/Base.astro";
+import Button from "../../components/Button.astro";
+import CtaBanner from "../../components/CtaBanner.astro";
+import { getCollection, render } from "astro:content";
+import type { GetStaticPaths } from "astro";
+
+export const getStaticPaths = (async () => {
+  const posts = await getCollection("blog");
+  return posts.map((post) => ({
+    params: { slug: post.id },
+    props: { post },
+  }));
+}) satisfies GetStaticPaths;
+
+const { post } = Astro.props;
+const { Content } = await render(post);
+
+const fecha = post.data.date.toLocaleDateString("es-CL", {
+  year: "numeric",
+  month: "long",
+  day: "numeric",
+});
+---
+
+<Base
+  title={`${post.data.title} | Blog EDCO`}
+  description={post.data.summary}
+>
+  <section class="mx-auto max-w-3xl px-4 py-14">
+    <p>
+      <a href="/recursos" class="text-sm font-semibold text-brand-800 hover:underline">
+        ← Recursos
+      </a>
+    </p>
+    <h1 class="mt-4 text-4xl font-bold leading-tight tracking-tight text-brand-900">
+      {post.data.title}
+    </h1>
+    <p class="mt-4 text-slate-500">
+      <time datetime={post.data.date.toISOString()}>{fecha}</time>
+      {" · "}
+      <span>{post.data.author}</span>
+    </p>
+
+    <article class="prose-edco mt-10 text-lg leading-relaxed">
+      <Content />
+    </article>
+
+    <div class="mt-12">
+      <Button href="/evalua-tu-empresa" variant="primary" size="lg" label="Evalúa tu Empresa" />
+    </div>
+  </section>
+
+  <CtaBanner
+    title="¿Te sirvió este contenido?"
+    description="El siguiente paso natural es saber cómo está tu empresa frente al DS44."
+  />
+</Base>

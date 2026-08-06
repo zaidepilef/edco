@@ -1,0 +1,78 @@
+---
+import Base from "../layouts/Base.astro";
+import Button from "../components/Button.astro";
+import CtaBanner from "../components/CtaBanner.astro";
+
+const sections = [
+  {
+    title: "¿Qué es el Decreto Supremo N°44?",
+    body: "El Decreto Supremo N°44 es el nuevo marco regulatorio de prevención de riesgos laborales en Chile, publicado en el contexto de la reforma a la Ley N°16.744. Establece cómo las empresas deben organizar su gestión preventiva en Seguridad y Salud en el Trabajo (SST), reemplazando y unificando criterios del marco anterior.",
+  },
+  {
+    title: "¿A quién aplica?",
+    body: "Aplica a los empleadores que deben gestionar la prevención de riesgos de sus trabajadores en el marco del seguro de accidentes del trabajo. La forma concreta de cumplir y las exigencias de gestión dependen de la situación particular de cada empresa, su tamaño y sus riesgos.",
+  },
+  {
+    title: "¿Qué obligaciones de gestión introduce?",
+    body: "El DS44 ordena la gestión preventiva: identificar y evaluar los riesgos, contar con un plan de prevención, asignar responsables y mantener registros. Es una forma más estructurada y exigente de organizar la SST que la que muchas empresas tenían antes.",
+  },
+  {
+    title: "¿Qué implica para mi empresa?",
+    body: "Para muchas empresas implica revisar cómo gestionan hoy la prevención: qué riesgos tienen identificados, cómo están documentados y quién responde por la SST. El primer paso práctico es conocer tu situación actual, y para eso sirve un diagnóstico.",
+  },
+  {
+    title: "Un consejo importante",
+    body: "Este contenido es informativo y no constituye asesoría legal ni técnica para tu caso particular. Las obligaciones específicas dependen de tu realidad: tamaño, actividad y riesgos. Un diagnóstico profesional es la forma correcta de saber qué aplica a tu empresa.",
+  },
+];
+---
+
+<Base
+  title="Decreto Supremo N°44: qué es y qué significa para tu empresa | EDCO"
+  description="Explicación del Decreto Supremo N°44 de prevención de riesgos laborales en Chile: qué es, a quién aplica y qué obligaciones introduce para las empresas."
+>
+  <section class="bg-brand-900 text-white">
+    <div class="mx-auto max-w-4xl px-4 py-16 sm:py-20">
+      <p class="text-sm font-bold uppercase tracking-widest text-accent-400">Normativa</p>
+      <h1 class="mt-4 text-4xl font-bold leading-tight tracking-tight sm:text-5xl">
+        Decreto Supremo N°44: la nueva forma de gestionar la prevención en Chile
+      </h1>
+      <p class="mt-6 text-lg text-brand-100">
+        Una explicación clara de qué cambia para las empresas y cómo saber si
+        estás cumpliendo. Sin tecnicismos innecesarios: lo que necesitas entender.
+      </p>
+    </div>
+  </section>
+
+  <section class="mx-auto max-w-4xl px-4 py-16">
+    <div class="space-y-12">
+      {
+        sections.map((section) => (
+          <article>
+            <h2 class="text-2xl font-bold text-brand-900">{section.title}</h2>
+            <p class="mt-3 text-lg leading-relaxed text-slate-600">{section.body}</p>
+          </article>
+        ))
+      }
+    </div>
+
+    <div class="mt-16 rounded-2xl bg-brand-50 p-8">
+      <h2 class="text-2xl font-bold text-brand-900">
+        El primer paso: saber dónde estás
+      </h2>
+      <p class="mt-3 text-lg text-slate-600">
+        Cada empresa es distinta. El diagnóstico preventivo "Evalúa tu Empresa"
+        revisa tu situación frente a la normativa y te entrega un punto de partida.
+      </p>
+      <div class="mt-6 flex flex-wrap gap-3">
+        <Button href="/evalua-tu-empresa" variant="primary" size="lg" label="Evalúa tu Empresa" />
+        <Button href="/servicios" variant="outline" size="lg" label="Ver servicios" />
+      </div>
+    </div>
+  </section>
+
+  <CtaBanner
+    title="¿Cumple tu empresa el DS44?"
+    description="Conoce tu situación con un diagnóstico preventivo. Te contactamos de forma inmediata."
+  />
+</Base>

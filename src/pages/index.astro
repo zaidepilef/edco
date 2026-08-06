@@ -1,0 +1,139 @@
+---
+import Base from "../layouts/Base.astro";
+import Button from "../components/Button.astro";
+import SectionTitle from "../components/SectionTitle.astro";
+import Card from "../components/Card.astro";
+import CtaBanner from "../components/CtaBanner.astro";
+import { getCollection } from "astro:content";
+
+const services = (await getCollection("services"))
+  .sort((a, b) => a.data.order - b.data.order)
+  .slice(0, 4);
+
+const heroStats = [
+  { value: "DS44", label: "Especialistas en la norma" },
+  { value: "Nacional", label: "Cobertura en todo Chile" },
+  { value: "Inmediato", label: "Respuesta ágil a tu solicitud" },
+];
+---
+
+<Base
+  title="EDCO Gestión Preventiva SpA | Prevención de Riesgos y DS44 en Chile"
+  description="Consultora especializada en Seguridad y Salud en el Trabajo (SST) y cumplimiento del Decreto Supremo N°44. Diagnóstico preventivo para empresas de todo Chile."
+>
+  <!-- Hero -->
+  <section class="bg-brand-900 text-white">
+    <div class="mx-auto max-w-6xl px-4 py-20 sm:py-28">
+      <p class="text-sm font-bold uppercase tracking-widest text-accent-400">
+        Seguridad y Salud en el Trabajo
+      </p>
+      <h1 class="mt-4 max-w-3xl text-4xl font-bold leading-tight tracking-tight sm:text-5xl">
+        Gestiona la prevención de riesgos de tu empresa con el Decreto Supremo N°44
+      </h1>
+      <p class="mt-6 max-w-2xl text-lg text-brand-100">
+        Somos una consultora especializada en SST que te acompaña a cumplir la
+        normativa, reducir riesgos y proteger a tus trabajadores. Empecemos por
+        saber dónde está tu empresa: solicita tu diagnóstico.
+      </p>
+      <div class="mt-8 flex flex-wrap gap-3">
+        <Button href="/evalua-tu-empresa" variant="accent" size="lg" label="Evalúa tu Empresa" />
+        <Button href="/servicios" variant="on-dark" size="lg" label="Ver servicios" />
+      </div>
+
+      <dl class="mt-12 grid gap-6 border-t border-brand-800 pt-8 sm:grid-cols-3">
+        {
+          heroStats.map((stat) => (
+            <div>
+              <dt class="text-2xl font-bold text-accent-400">{stat.value}</dt>
+              <dd class="mt-1 text-sm text-brand-200">{stat.label}</dd>
+            </div>
+          ))
+        }
+      </dl>
+    </div>
+  </section>
+
+  <!-- Servicios -->
+  <section class="mx-auto max-w-6xl px-4 py-16">
+    <SectionTitle
+      eyebrow="Servicios"
+      title="Soluciones preventivas para tu empresa"
+      description="Del diagnóstico inicial al acompañamiento permanente: servicios de SST a la medida de tu realidad."
+      align="center"
+    />
+    <div class="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+      {
+        services.map((service) => (
+          <Card
+            title={service.data.title}
+            description={service.data.benefit}
+            href={`/servicios/${service.id}`}
+            cta="Conocer más"
+            icon={service.data.featured ? "◆" : "✓"}
+          />
+        ))
+      }
+    </div>
+  </section>
+
+  <!-- DS44 -->
+  <section class="bg-safety-800 text-white">
+    <div class="mx-auto grid max-w-6xl items-center gap-10 px-4 py-16 lg:grid-cols-2">
+      <div>
+        <p class="text-sm font-bold uppercase tracking-widest text-accent-400">Decreto Supremo N°44</p>
+        <h2 class="mt-3 text-3xl font-bold tracking-tight">
+          ¿Sabe tu empresa si cumple el DS44?
+        </h2>
+        <p class="mt-4 text-lg text-safety-100">
+          El nuevo marco regulatorio de prevención de riesgos laborales en Chile
+          obliga a las empresas a gestionar la SST de forma estructurada. Si no
+          sabes por dónde empezar, no estás solo: ese es exactamente el punto de
+          partida.
+        </p>
+        <div class="mt-6 flex flex-wrap gap-3">
+          <Button href="/ds44" variant="accent" size="lg" label="Explicación del DS44" />
+          <Button href="/evalua-tu-empresa" variant="on-dark" size="lg" label="Evaluar mi empresa" />
+        </div>
+      </div>
+      <div class="rounded-2xl bg-white/10 p-6">
+        <h3 class="text-xl font-semibold">¿Qué encontrarás en la página del DS44?</h3>
+        <ul class="mt-4 space-y-3 text-safety-50">
+          <li>Qué es el DS44 y a quién aplica.</li>
+          <li>Las obligaciones de gestión preventiva que introduce.</li>
+          <li>Por qué un diagnóstico temprano te ahorra problemas.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Por qué EDCO -->
+  <section class="mx-auto max-w-6xl px-4 py-16">
+    <SectionTitle
+      eyebrow="Por qué EDCO"
+      title="Respaldo técnico, cercanía y foco en el DS44"
+      align="center"
+    />
+    <div class="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+      <Card
+        icon="◈"
+        title="Especialización en DS44"
+        description="Nos dedicamos a la normativa de prevención que más cambió la gestión de SST en Chile. La conocemos en profundidad."
+      />
+      <Card
+        icon="⚙"
+        title="Tecnología propia"
+        description="Un proceso de diagnóstico y gestión apoyado en tecnología, pensado como la base de tu plan preventivo."
+      />
+      <Card
+        icon="✓"
+        title="Acompañamiento cercano"
+        description="Atendemos cada empresa de forma directa y personal: hablas con quien ejecuta, no con un call center."
+      />
+    </div>
+  </section>
+
+  <CtaBanner
+    title="¿Listo para saber dónde está tu empresa frente al DS44?"
+    description="Solicita tu diagnóstico preventivo. Te contactamos de forma inmediata."
+  />
+</Base>

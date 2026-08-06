@@ -1,0 +1,94 @@
+@import "tailwindcss";
+
+/* ============================================================
+   Tokens de diseño de la marca EDCO
+   Paleta propuesta (pendiente de aprobación definitiva):
+   azul profundo (confianza/seguridad) + verde seguridad + ámbar.
+   Cambiar la identidad aquí afecta a todo el sitio.
+   ============================================================ */
+
+@theme {
+  --font-sans:
+    ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, sans-serif;
+
+  --color-brand-50: #eff8ff;
+  --color-brand-100: #dbeefe;
+  --color-brand-200: #bfe2fd;
+  --color-brand-300: #93d0fb;
+  --color-brand-400: #60b5f7;
+  --color-brand-500: #3b96f2;
+  --color-brand-600: #2578e7;
+  --color-brand-700: #1d61d4;
+  --color-brand-800: #1e4fac;
+  --color-brand-900: #1e4487;
+  --color-brand-950: #172b52;
+
+  --color-safety-50: #ecfdf5;
+  --color-safety-100: #d1fae5;
+  --color-safety-200: #a7f3d0;
+  --color-safety-500: #10b981;
+  --color-safety-600: #059669;
+  --color-safety-700: #047857;
+  --color-safety-800: #065f46;
+
+  --color-accent-100: #fef3c7;
+  --color-accent-400: #fbbf24;
+  --color-accent-500: #f59e0b;
+  --color-accent-600: #d97706;
+
+  --color-paper-50: #fbfaf7;
+  --color-paper-100: #f5f2eb;
+}
+
+:root {
+  --ease-smooth: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-paper-50 text-slate-800 antialiased;
+  font-family: var(--font-sans);
+}
+
+/* Focus visible para navegación por teclado */
+:focus-visible {
+  outline: 3px solid var(--color-accent-500);
+  outline-offset: 2px;
+}
+
+/* Skip link */
+.skip-link {
+  @apply sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-50 focus:bg-brand-800 focus:text-white focus:px-4 focus:py-2 focus:rounded;
+}
+
+/* Estilos para contenido Markdown renderizado */
+.prose-edco h1,
+.prose-edco h2,
+.prose-edco h3 {
+  @apply mt-8 mb-3 font-bold tracking-tight text-brand-900;
+}
+.prose-edco h1 {
+  @apply text-3xl;
+}
+.prose-edco h2 {
+  @apply text-2xl;
+}
+.prose-edco h3 {
+  @apply text-xl;
+}
+.prose-edco p {
+  @apply mb-4 text-slate-600;
+}
+.prose-edco ul {
+  @apply mb-4 list-disc space-y-2 pl-6 text-slate-600;
+}
+.prose-edco ol {
+  @apply mb-4 list-decimal space-y-2 pl-6 text-slate-600;
+}
+.prose-edco strong {
+  @apply font-semibold text-slate-800;
+}

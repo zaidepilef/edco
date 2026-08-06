@@ -1,0 +1,55 @@
+---
+import Base from "../../layouts/Base.astro";
+import Card from "../../components/Card.astro";
+import CtaBanner from "../../components/CtaBanner.astro";
+import SectionTitle from "../../components/SectionTitle.astro";
+import { getCollection } from "astro:content";
+
+const services = (await getCollection("services")).sort(
+  (a, b) => a.data.order - b.data.order
+);
+---
+
+<Base
+  title="Servicios de Prevención de Riesgos Laborales | EDCO"
+  description="Catálogo de servicios de Seguridad y Salud en el Trabajo de EDCO: diagnóstico preventivo, asesoría, capacitaciones y gestión de riesgo laboral, alineados al DS44."
+>
+  <section class="bg-brand-900 text-white">
+    <div class="mx-auto max-w-4xl px-4 py-16 sm:py-20">
+      <p class="text-sm font-bold uppercase tracking-widest text-accent-400">Servicios</p>
+      <h1 class="mt-4 text-4xl font-bold leading-tight tracking-tight sm:text-5xl">
+        Servicios de prevención para tu empresa
+      </h1>
+      <p class="mt-6 text-lg text-brand-100">
+        Del diagnóstico inicial al acompañamiento permanente: una oferta completa
+        de Seguridad y Salud en el Trabajo, alineada con el Decreto Supremo N°44.
+      </p>
+    </div>
+  </section>
+
+  <section class="mx-auto max-w-6xl px-4 py-16">
+    <SectionTitle
+      eyebrow="Nuestra oferta"
+      title="Todo lo que tu empresa necesita para gestionar la SST"
+      align="center"
+    />
+    <div class="mt-10 grid gap-6 sm:grid-cols-2">
+      {
+        services.map((service) => (
+          <Card
+            icon={service.data.featured ? "◆" : "✓"}
+            title={service.data.title}
+            description={service.data.benefit}
+            href={`/servicios/${service.id}`}
+            cta="Ver detalle del servicio"
+          />
+        ))
+      }
+    </div>
+  </section>
+
+  <CtaBanner
+    title="¿No sabes por dónde empezar?"
+    description="Comienza por el diagnóstico preventivo: es la puerta de entrada natural a toda gestión de SST."
+  />
+</Base>
