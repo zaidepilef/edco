@@ -2,8 +2,8 @@
 
 /* ============================================================
    Tokens de diseño de la marca EDCO
-   Paleta propuesta (pendiente de aprobación definitiva):
-   azul profundo (confianza/seguridad) + verde seguridad + ámbar.
+   Paleta oficial aprobada (sobria):
+   amarillo-verde #BAFF39 (acento/destello) + casi-negro + paper cálido.
    Cambiar la identidad aquí afecta a todo el sitio.
    ============================================================ */
 
@@ -12,30 +12,22 @@
     ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto,
     "Helvetica Neue", Arial, sans-serif;
 
-  --color-brand-50: #eff8ff;
-  --color-brand-100: #dbeefe;
-  --color-brand-200: #bfe2fd;
-  --color-brand-300: #93d0fb;
-  --color-brand-400: #60b5f7;
-  --color-brand-500: #3b96f2;
-  --color-brand-600: #2578e7;
-  --color-brand-700: #1d61d4;
-  --color-brand-800: #1e4fac;
-  --color-brand-900: #1e4487;
-  --color-brand-950: #172b52;
+  --color-brand-50: #f8ffe6;
+  --color-brand-100: #efffcc;
+  --color-brand-200: #e2ff99;
+  --color-brand-300: #d3ff66;
+  --color-brand-400: #c6ff4d;
+  --color-brand-500: #baff39;
+  --color-brand-600: #96d428;
+  --color-brand-700: #75a920;
+  --color-brand-800: #587f1a;
+  --color-brand-900: #3e5a13;
+  --color-brand-950: #24350b;
 
-  --color-safety-50: #ecfdf5;
-  --color-safety-100: #d1fae5;
-  --color-safety-200: #a7f3d0;
-  --color-safety-500: #10b981;
-  --color-safety-600: #059669;
-  --color-safety-700: #047857;
-  --color-safety-800: #065f46;
+  --color-ink: #0d0d0d;
+  --color-ink-soft: #171717;
 
-  --color-accent-100: #fef3c7;
-  --color-accent-400: #fbbf24;
-  --color-accent-500: #f59e0b;
-  --color-accent-600: #d97706;
+  --color-muted: #6e6e6e;
 
   --color-paper-50: #fbfaf7;
   --color-paper-100: #f5f2eb;
