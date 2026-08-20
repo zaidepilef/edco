@@ -42,14 +42,16 @@ html {
 }
 
 body {
-  @apply bg-paper-50 text-slate-800 antialiased;
+  @apply bg-paper-50 text-ink antialiased;
   font-family: var(--font-sans);
 }
 
-/* Focus visible para navegación por teclado */
+/* Focus visible para navegación por teclado:
+   lime + anillo oscuro para mantener contraste sobre paper y casi-negro */
 :focus-visible {
-  outline: 3px solid var(--color-accent-500);
-  outline-offset: 2px;
+  outline: 3px solid var(--color-brand-500);
+  outline-offset: 3px;
+  box-shadow: 0 0 0 3px var(--color-ink);
 }
 
 /* Skip link */
@@ -73,14 +75,14 @@ body {
   @apply text-xl;
 }
 .prose-edco p {
-  @apply mb-4 text-slate-600;
+  @apply mb-4 text-muted;
 }
 .prose-edco ul {
-  @apply mb-4 list-disc space-y-2 pl-6 text-slate-600;
+  @apply mb-4 list-disc space-y-2 pl-6 text-muted;
 }
 .prose-edco ol {
-  @apply mb-4 list-decimal space-y-2 pl-6 text-slate-600;
+  @apply mb-4 list-decimal space-y-2 pl-6 text-muted;
 }
 .prose-edco strong {
-  @apply font-semibold text-slate-800;
+  @apply font-semibold text-ink;
 }
