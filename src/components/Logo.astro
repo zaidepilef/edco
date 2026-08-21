@@ -3,7 +3,7 @@ interface Props {
   href?: string;
   size?: "sm" | "md" | "lg";
 }
-const { href = "/", size = "md" } = Astro.props;
+const { href = "/edco/", size = "md" } = Astro.props;
 
 const sizes = {
   sm: "h-8",
@@ -23,7 +23,7 @@ const sizes = {
     role="img"
     aria-hidden="true"
   >
-    <rect width="40" height="40" rx="9" fill="#1e4fac" />
+    <rect width="40" height="40" rx="9" fill="var(--color-ink)" />
     <path
       d="M20 7l9 3.5v6.2c0 6.3-3.8 11.6-9 13.8-5.2-2.2-9-7.5-9-13.8v-6.2L20 7z"
       fill="none"
@@ -33,15 +33,15 @@ const sizes = {
     <path
       d="M14.5 20l3.6 3.6 7.4-7.4"
       fill="none"
-      stroke="#fbbf24"
+      stroke="var(--color-brand-500)"
       stroke-width="2.8"
       stroke-linecap="round"
       stroke-linejoin="round"
     />
   </svg>
-  <span class="font-bold tracking-tight text-brand-900">
+  <span class="font-bold tracking-tight text-ink">
     EDCO
-    <span class="block text-[0.6em] font-semibold uppercase tracking-wider text-slate-500">
+    <span class="block text-[0.6em] font-semibold uppercase tracking-wider text-muted">
       Gestión Preventiva
     </span>
   </span>

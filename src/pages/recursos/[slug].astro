@@ -29,14 +29,14 @@ const fecha = post.data.date.toLocaleDateString("es-CL", {
 >
   <section class="mx-auto max-w-3xl px-4 py-14">
     <p>
-      <a href="/recursos" class="text-sm font-semibold text-brand-800 hover:underline">
+      <a href="/edco/recursos" class="text-sm font-semibold text-brand-800 hover:underline">
         ← Recursos
       </a>
     </p>
-    <h1 class="mt-4 text-4xl font-bold leading-tight tracking-tight text-brand-900">
+    <h1 class="mt-4 text-4xl font-bold leading-tight tracking-tight text-ink">
       {post.data.title}
     </h1>
-    <p class="mt-4 text-slate-500">
+    <p class="mt-4 text-muted">
       <time datetime={post.data.date.toISOString()}>{fecha}</time>
       {" · "}
       <span>{post.data.author}</span>
@@ -47,7 +47,7 @@ const fecha = post.data.date.toLocaleDateString("es-CL", {
     </article>
 
     <div class="mt-12">
-      <Button href="/evalua-tu-empresa" variant="primary" size="lg" label="Evalúa tu Empresa" />
+      <Button href="/edco/evalua-tu-empresa" variant="primary" size="lg" label="Evalúa tu Empresa" />
     </div>
   </section>
 

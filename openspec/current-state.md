@@ -2,19 +2,19 @@
 
 ## Fecha
 
-2026-08-06
+2026-08-20
 
 ## Resumen
 
-Sitio web corporativo de EDCO Gestión Preventiva SpA construido con Astro + TypeScript + Tailwind CSS v4. El sitio está funcional en desktop y en gran parte en móvil; hay un cambio en curso para corregir el menú de navegación en móvil.
+Sitio web corporativo de EDCO Gestión Preventiva SpA construido con Astro + TypeScript + Tailwind CSS v4, publicado como sitio 100% estático en GitHub Pages para demostración al cliente (sin backend ni dominio propio).
 
 ## Funcionalidades implementadas
 
-- Sitio responsive mobile-first (5 specs activas: `corporate-website`, `service-catalog`, `lead-capture`, `resource-blog`, `seo-basics`).
+- Sitio responsive mobile-first (6 specs activas: `corporate-website`, `service-catalog`, `lead-capture`, `resource-blog`, `seo-basics`, `github-pages-deployment`).
 - Identidad de marca EDCO como tokens de diseño en `src/styles/global.css`.
-- Navegación principal con versión colapsable en móvil (en corrección, ver Cambio en curso).
+- Navegación principal con versión colapsable en móvil.
 - CTA fijo "Evalúa tu Empresa" con página propia y formulario de mínima fricción.
-- Backend de prospectos: API `src/pages/api/prospecto.ts` + PostgreSQL (tabla `prospecto`), con validación en servidor, honeypot y notificación por email.
+- Formularios de demostración ("Evalúa tu Empresa" y contacto): validación client-side, confirmación simulada y enlace de contacto por correo (`contacto@edco.cl`). Sin backend, sin persistencia ni notificación.
 - Catálogo de servicios y blog de recursos gestionados por Content Collections (Markdown).
 - Página explicativa del DS44 orientada a SEO.
 - Maqueta sin funcionalidad del área de cliente/login.
@@ -23,14 +23,17 @@ Sitio web corporativo de EDCO Gestión Preventiva SpA construido con Astro + Typ
 
 ## Estado del despliegue
 
-- Configurado para Vercel (`@astrojs/vercel`) con build estático + funciones serverless.
-- Pendientes: compra del dominio y configuración de DNS (tareas 1.5 y 7.x del cambio archivado).
+- Publicado en GitHub Pages desde la raíz de la rama `gh-pages` en `https://zaidepilef.github.io/edco/` (con `base: "/edco/"` y `.nojekyll`).
+- Deploy manual local con el script `npm run deploy` (`gh-pages -d dist --nojekyll`); sin GitHub Actions.
+- Eliminados: backend de prospectos (`src/pages/api/prospecto.ts`, `src/lib/prospecto.ts`, `src/lib/notify.ts`, `pg`), configuración de Vercel y restos de builds anteriores (`dist/client`, `.vercel/`).
+- Pendientes: dominio propio y configuración DNS (al comprarlo: cambiar `site`, quitar `base` y revertir los prefijos `/edco/` de los enlaces).
 
 ## Cambios recientes (archivados)
 
-- `2026-08-06-build-corporate-website`: construcción inicial del sitio (specs activas de las 5 capabilities).
-- `2026-08-06-fix-mobile-hamburger-menu`: corrección del menú hamburguesa en móvil. Eliminada la clase `hidden` redundante en `#menu-mobile` (`src/components/Header.astro`); el atributo `hidden` gestionado por JS es ahora la única fuente de visibilidad. Build verificado y delta de "Navegación principal" sincronizado a `openspec/specs/corporate-website/spec.md`. Archivado con advertencia: 3 tareas de verificación manual (2.3–2.5) quedaron sin ejecutar en navegador.
+- `2026-08-06-build-corporate-website`: construcción inicial del sitio (specs activas de las 5 capabilities originales).
+- `2026-08-06-fix-mobile-hamburger-menu`: corrección del menú hamburguesa en móvil.
+- `2026-08-20-redesign-brand-palette`: rediseño de la paleta de marca acorde a la identidad oficial.
 
-## Siguiente paso pendiente
+## Cambio en curso
 
-- Verificar manualmente en viewport móvil el menú hamburguesa (abrir/cerrar, `Escape`, clic en enlace, `aria-expanded`, sin regresión en escritorio). Si surgiera un fallo, abrir un nuevo change para corregirlo.
+- `deploy-github-pages`: migración a GitHub Pages como sitio estático puro para demostración al cliente, con eliminación del backend de prospectos. Implementación completada; pendiente de archivo.

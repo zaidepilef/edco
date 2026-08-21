@@ -8,7 +8,7 @@ import { initProspectForm } from "../scripts/prospect-form";
   novalidate
   data-form="evalua"
 >
-  <p class="text-sm text-slate-500">
+  <p class="text-sm text-muted">
     Solo necesitamos tus datos de contacto. Te contactaremos de forma inmediata
     para coordinar el diagnóstico de tu empresa.
   </p>
@@ -19,7 +19,7 @@ import { initProspectForm } from "../scripts/prospect-form";
   </div>
 
   <div data-field="nombre">
-    <label for="eval-nombre" class="mb-1 block font-medium text-slate-700">
+    <label for="eval-nombre" class="mb-1 block font-medium text-ink">
       Nombre *
     </label>
     <input
@@ -34,7 +34,7 @@ import { initProspectForm } from "../scripts/prospect-form";
   </div>
 
   <div data-field="email">
-    <label for="eval-email" class="mb-1 block font-medium text-slate-700">
+    <label for="eval-email" class="mb-1 block font-medium text-ink">
       Correo electrónico
     </label>
     <input
@@ -48,7 +48,7 @@ import { initProspectForm } from "../scripts/prospect-form";
   </div>
 
   <div data-field="telefono">
-    <label for="eval-telefono" class="mb-1 block font-medium text-slate-700">
+    <label for="eval-telefono" class="mb-1 block font-medium text-ink">
       Teléfono
     </label>
     <input
@@ -61,13 +61,13 @@ import { initProspectForm } from "../scripts/prospect-form";
     <p class="mt-1 text-sm text-red-700" data-error role="alert"></p>
   </div>
 
-  <p class="text-xs text-slate-500">
+  <p class="text-xs text-muted">
     * Correo y/o teléfono: con uno de los dos es suficiente.
   </p>
 
   <button
     type="submit"
-    class="w-full rounded-lg bg-accent-500 px-6 py-3 font-semibold text-white transition-colors hover:bg-accent-600 sm:w-auto"
+    class="w-full rounded-lg bg-brand-500 px-6 py-3 font-semibold text-ink transition-colors hover:bg-brand-400 sm:w-auto"
   >
     Solicitar mi diagnóstico
   </button>
@@ -77,7 +77,7 @@ import { initProspectForm } from "../scripts/prospect-form";
 
 <style>
   [data-form-status][data-kind="success"] {
-    color: var(--color-safety-700);
+    color: var(--color-brand-800);
   }
   [data-form-status][data-kind="error"] {
     color: #b91c1c;

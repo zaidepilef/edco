@@ -1,19 +1,18 @@
 import { defineConfig } from "astro/config";
-import vercel from "@astrojs/vercel/static";
 import sitemap from "@astrojs/sitemap";
 import tailwindcss from "@tailwindcss/vite";
 
 export default defineConfig({
-  site: "https://edco.cl",
+  site: "https://zaidepilef.github.io/edco/",
+  base: "/edco/",
   output: "static",
-  adapter: vercel(),
   integrations: [sitemap()],
   vite: {
     plugins: [tailwindcss()],
     server: {
       allowedHosts: [
-        '.trycloudflare.com'
+        ".trycloudflare.com"
       ]
     }
-  },
+  }
 });

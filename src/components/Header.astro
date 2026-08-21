@@ -2,12 +2,12 @@
 import Logo from "./Logo.astro";
 
 const navItems = [
-  { label: "Inicio", href: "/" },
-  { label: "DS44", href: "/ds44" },
-  { label: "Servicios", href: "/servicios" },
-  { label: "Recursos", href: "/recursos" },
-  { label: "Nosotros", href: "/nosotros" },
-  { label: "Contacto", href: "/contacto" },
+  { label: "Inicio", href: "/edco/" },
+  { label: "DS44", href: "/edco/ds44" },
+  { label: "Servicios", href: "/edco/servicios" },
+  { label: "Recursos", href: "/edco/recursos" },
+  { label: "Nosotros", href: "/edco/nosotros" },
+  { label: "Contacto", href: "/edco/contacto" },
 ];
 ---
 
@@ -24,7 +24,7 @@ const navItems = [
           <li>
             <a
               href={item.href}
-              class="rounded-lg px-3 py-2 font-medium text-slate-700 hover:bg-brand-50 hover:text-brand-800"
+              class="rounded-lg px-3 py-2 font-medium text-muted hover:bg-brand-50 hover:text-brand-800"
             >
               {item.label}
             </a>
@@ -35,8 +35,8 @@ const navItems = [
 
     <div class="flex items-center gap-2">
       <a
-        href="/evalua-tu-empresa"
-        class="hidden items-center rounded-lg bg-accent-500 px-4 py-2 font-semibold text-white transition-colors hover:bg-accent-600 sm:inline-flex"
+        href="/edco/evalua-tu-empresa"
+        class="hidden items-center rounded-lg bg-brand-500 px-4 py-2 font-semibold text-ink transition-colors hover:bg-brand-400 sm:inline-flex"
       >
         Evalúa tu Empresa
       </a>
@@ -67,7 +67,7 @@ const navItems = [
           <li>
             <a
               href={item.href}
-              class="block rounded-lg px-3 py-3 font-medium text-slate-700 hover:bg-brand-50 hover:text-brand-800"
+              class="block rounded-lg px-3 py-3 font-medium text-muted hover:bg-brand-50 hover:text-brand-800"
             >
               {item.label}
             </a>
@@ -76,8 +76,8 @@ const navItems = [
       }
       <li>
         <a
-          href="/evalua-tu-empresa"
-          class="block rounded-lg px-3 py-3 font-semibold text-accent-600"
+          href="/edco/evalua-tu-empresa"
+          class="block rounded-lg px-3 py-3 font-semibold text-brand-800"
         >
           Evalúa tu Empresa
         </a>

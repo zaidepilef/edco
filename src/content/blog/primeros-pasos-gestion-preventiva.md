@@ -33,4 +33,4 @@ Un diagnóstico inicial te ordena estos cuatro pilares para tu caso concreto.
 No reemplaza el plan, pero evita partir en cero: te entrega el mapa.
 
 > Si quieres una guía práctica para revisar tu empresa, usa nuestro
-> [checklist de gestión preventiva](/recursos/checklist-ds44).
+> [checklist de gestión preventiva](/edco/recursos/checklist-ds44).
